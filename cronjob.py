@@ -4,10 +4,9 @@ import subprocess
 
 def my_task():
     command = "zsh green.zsh"
-    result = subprocess.run(command, shell=True, capture_output=True, text=True)
+    result = sbprocess.run(command, shell=True, capture_output=True, text=True)
     print("Output:", result.stdout)
     print("Error:", result.stderr)
-
 
 
 scheduler = BlockingScheduler()
