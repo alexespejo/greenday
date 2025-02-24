@@ -1,5 +1,3 @@
-flag=1
-echo "Starting!" 
 commit_changes() {
     # Append the current date to README.md
     echo "### $(date): Daily Commit!" >> "README.md"
@@ -32,14 +30,17 @@ commit_changes() {
     fi
 }
 
-
+flag=1
+echo "Green Day! ❇️" 
 while true; do
-	if [[ "$(date +%H:%M)" == "19:18" ]]; then
+	if [[ $(date +%H) -ge 00 ]]; then
 		if [ $flag -eq 1 ]; then
 				commit_changes
 				flag=0
 		fi 
-	else 
-		flag=1
 	fi
+
+	if [[ $(date +%H) -eq 00 ]]; then
+		flag=1
+	fi 
 done
