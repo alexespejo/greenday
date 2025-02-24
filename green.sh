@@ -2,10 +2,8 @@ green_emojis=(🍏 🍐 🥒 🥬 🥦 🌿 🍀 🌱 🌲 🌳 🐢 🦖 🦎 �
 commit_changes() {
     random_emoji=${green_emojis[RANDOM % ${#green_emojis[@]}]}
 
-    # Append the current date to README.md
     echo "### $(date): Daily $random_emoji!" >> "README.md"
 
-    # Check if the file was updated successfully
     if [ $? -eq 0 ]; then
         echo "Content written to README.md successfully."
     else
@@ -13,12 +11,8 @@ commit_changes() {
         return 1
     fi
 
-    # Check if the current directory is a Git repository
     if git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
-        # Add the file to Git
         git add . 
-
-        # Commit the changes
         git qush "Daily $random_emoji"
 
         if [ $? -eq 0 ]; then
