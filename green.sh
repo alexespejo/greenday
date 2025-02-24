@@ -2,6 +2,7 @@ green_emojis=(🍏 🍐 🥒 🥬 🥦 🌿 🍀 🌱 🌲 🌳 🐢 🦖 🦎 �
 commit_changes() {
     random_emoji=${green_emojis[RANDOM % ${#green_emojis[@]}]}
 
+    # write to file
     echo "### $(date): Daily $random_emoji!" >> "README.md"
 
     if [ $? -eq 0 ]; then
@@ -11,7 +12,9 @@ commit_changes() {
         return 1
     fi
 
+    # gets branch
     if git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+        # add changes to git 
         git add . 
         git qush "Daily $random_emoji"
 
