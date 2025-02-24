@@ -1,4 +1,7 @@
+green_emojis=(🍏 🍐 🥒 🥬 🥦 🌿 🍀 🌱 🌲 🌳 🐢 🦖 🦎 ✅ 💚)
 commit_changes() {
+    random_emoji=${green_emojis[RANDOM % ${#green_emojis[@]}]}
+
     # Append the current date to README.md
     echo "### $(date): Daily Commit!" >> "README.md"
 
@@ -16,7 +19,7 @@ commit_changes() {
         git add . 
 
         # Commit the changes
-        git qush -m "Daily commit!"
+        git qush -m "Daily $random_emoji"
 
         if [ $? -eq 0 ]; then
             echo "Changes committed successfully."
