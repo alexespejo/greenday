@@ -16,7 +16,7 @@ commit_changes() {
         git qush "Daily $random_emoji"
 
         if [ $? -eq 0 ]; then
-            echo "Changes committed successfullyn\n\n"
+            echo -e "\n\nChanges committed successfully"
         else
             echo "Error committing changes."
             return 1
@@ -27,7 +27,7 @@ commit_changes() {
     fi
 }
 
-echo "Green Day! ❇️ \n" 
+echo -e "Green Day! ❇️ \n" 
 while true; do
 	if [[ $(date +%H) -ge 00 ]]; then
     commit_changes
