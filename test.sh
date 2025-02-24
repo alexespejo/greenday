@@ -18,7 +18,7 @@ commit_changes() {
         git add . 
 
         # Commit the changes
-        git commit -m "Daily commit!"
+        git qush -m "Daily commit!"
 
         if [ $? -eq 0 ]; then
             echo "Changes committed successfully."
