@@ -33,11 +33,7 @@ while true; do
 	if [[ $(date +%H) -ge 00 ]]; then
 		if [ $flag -eq 1 ]; then
 				commit_changes
-				flag=0
+        sleep 86400 && echo "24 hours have passed!"
 		fi 
 	fi
-
-	if [[ $(date +%H) -eq 00 ]]; then
-		flag=1
-	fi 
 done
