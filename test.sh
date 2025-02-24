@@ -2,7 +2,7 @@ flag=1
 echo "Starting!" 
 commit_changes() {
     # Append the current date to README.md
-    echo "$(date): Daily Commit!" >> "README.md"
+    echo "### $(date): Daily Commit!" >> "README.md"
 
     # Check if the file was updated successfully
     if [ $? -eq 0 ]; then
@@ -34,7 +34,7 @@ commit_changes() {
 
 
 while true; do
-	if [[ "$(date +%H:%M)" == "19:17" ]]; then
+	if [[ "$(date +%H:%M)" == "19:18" ]]; then
 		if [ $flag -eq 1 ]; then
 				commit_changes
 				flag=0
