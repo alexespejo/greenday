@@ -20,6 +20,7 @@ commit_changes() {
 
         # Commit the changes
         git qush -m "Daily $random_emoji"
+        echo "$random_emoji"
 
         if [ $? -eq 0 ]; then
             echo "Changes committed successfully."
