@@ -19,7 +19,7 @@ commit_changes() {
         git qush "Daily $random_emoji"
 
         if [ $? -eq 0 ]; then
-            echo -e "\n\nChanges committed successfully"
+            echo -e "Changes committed successfully\n\nStarting again!"
         else
             echo "Error committing changes."
             return 1
@@ -34,6 +34,6 @@ echo -e "Green Day! ❇️ \n"
 while true; do
 	if [[ $(date +%H) -ge 00 ]]; then
     commit_changes
-    sleep 60 && echo "24 hours have passed!"
+    sleep 43200 && echo "24 hours have passed!"
 	fi
 done
