@@ -34,6 +34,6 @@ echo -e "Green Day! ❇️ \n"
 while true; do
 	if [[ $(date +%H) -ge 00 ]]; then
     commit_changes
-    sleep 86400 && echo "24 hours have passed!"
+    sleep 60 && echo "24 hours have passed!"
 	fi
 done
