@@ -1,0 +1,28 @@
+w = [0,9,4,7]
+W = 12
+keep = [[0 for y in range(W)] for x in range(len(w)+1)]
+
+def truckload(w, W, n):
+    OPT = [[0 for y in range(W)] for x in range(len(w)+1)]
+    
+    for i in range(1,n):
+        for j in range(1, W):
+            # if the weight is less than j
+            # if the weight + combined with prev weight <= the previous weight at j
+            if (w[i] > j or (w[i] + OPT[i-1][j-w[i]] <= OPT[i-1][j])):
+                OPT[i][j] = OPT[i-1][j]
+                keep[i][j] = 0
+            else:
+                # add the new weight + any valid remaining values found in the previous iterations
+                OPT[i][j] = w[i] + OPT[i-1][j-w[i]] 
+                keep[i][j] = 1
+    return OPT
+
+res = truckload(w,W,len(w))
+
+for i, row in enumerate(res):  # i is the index, row is the actual row
+    print(i, end=": ")
+    for j, col in enumerate(row):  # col is the column index, j is the value in the row
+        print((col, keep[i][j]), end=", ")
+    print()
+
